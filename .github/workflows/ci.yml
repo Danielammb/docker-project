@@ -17,6 +17,6 @@ jobs:
         uses: actions/setup-node@v3.9.1
         with:
             node-version: 20
-            cache: 'yarn'
+            cache: 'npm'
       - run: yarn
       - run: yarn run test
