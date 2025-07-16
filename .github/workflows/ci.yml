@@ -7,7 +7,7 @@ on:
 
 jobs: 
   build:
-    name: 'Build and Push'
+    name: 'Build and Push '
     environment: actions
     runs-on: ubuntu-latest
 
