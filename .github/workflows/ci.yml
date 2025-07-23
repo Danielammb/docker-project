@@ -34,8 +34,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build docker image
-        run: docker build -t danielabatista/rocketseat-ci-api-level-up:${{ steps.generate_tag.outputs.sha }} .
+      - name: Build and push docker images
+        uses: docker/build-push-action@v6.18.0
+        with: 
+          push: true
+          tags: danielabatista/rocketseat-ci-api-level-up:${{ steps.generate_tag.outputs.sha }},danielabatista/rocketseat-ci-api-level-up:latest
 
-      - name: Push image
-        run: docker push danielabatista/rocketseat-ci-api-level-up:${{ steps.generate_tag.outputs.sha }}
+     # - name: Build docker image
+     #   run: docker build -t danielabatista/rocketseat-ci-api-level-up:${{ steps.generate_tag.outputs.sha }} .
+
+     # - name: Push image
+     #   run: docker push danielabatista/rocketseat-ci-api-level-up:${{ steps.generate_tag.outputs.sha }}
